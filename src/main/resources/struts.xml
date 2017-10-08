@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.action.extension" value="action" />
+
+    <package name="default" extends="struts-default" namespace="/">
+
+        <!-- 策略1：由Spring管理Action -->
+        <action name="index1" class="BeanId">
+            <result>/WEB-INF/jsp/index.jsp</result>
+        </action>
+
+        <!-- 策略2：由Spring插件管理Action -->
+        <action name="index2" class="com.zhj.struts2.Action2">
+            <result>/WEB-INF/jsp/index.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
